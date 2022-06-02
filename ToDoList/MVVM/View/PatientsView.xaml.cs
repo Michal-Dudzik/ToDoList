@@ -11,16 +11,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToDoList
+namespace ToDoList.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy WorkTask.xaml
+    /// Logika interakcji dla klasy Patients.xaml
     /// </summary>
-    public partial class WorkTask : UserControl
+    public partial class Patients : UserControl
     {
-        public WorkTask()
+        public Patients()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

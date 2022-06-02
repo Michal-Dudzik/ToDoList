@@ -12,25 +12,10 @@
         <StackPanel Orientation="Horizontal" Margin="0,0,0,600" Background="#FF570092" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" Height="50">
             <TextBlock Text="ToDoList" Foreground="White" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Candara" Margin="10,0,0,0"/>
             <TextBlock x:Name="Searchbar" Text="PlaceHolder wyszukiwania" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="550,0,0,0" Width="200" Foreground="White" FontSize="16" FontFamily="Candara" FontWeight="Normal"/>
-            
-            <StackPanel x:Name="FunctionButtons" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
-
-                <Button x:Name="Minimalize" 
-                    Content="Min" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF99EFFF" Margin="0,0,5,0" Width="40"
-                    />
-
-                <Button 
-                    Content="Full" Height="30" Background="#FF99EFFF" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,5,0" Width="40" 
-                    />
-
-                <Button x:Name="Exit" 
-                    Content="Exit" Height="30" Background="#FF99EFFF" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,5,0" Width="40"
-                   />
-            </StackPanel>
         </StackPanel>
         <StackPanel Height="400" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <ScrollViewer Height="300" Width="600">
+            <!--<ScrollViewer Height="300" Width="600">
                 <ItemsControl ItemsSource="{Binding WorkTaskList}" Margin="10" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -38,7 +23,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </ScrollViewer>
+            </ScrollViewer>-->
 
 
             <TextBlock Text="Tytuł:">
@@ -63,13 +48,13 @@
                 <Button 
                     Content="Dodaj" 
                     Command="{Binding AddNewTaskCommand}"
-                    Style="{StaticResource DefaultButton}">
+                    >
                 </Button>
 
                 <Button 
                     Content="Usun" 
                     Command="{Binding DeleteSelectedTasksCommand}"
-                    Style="{StaticResource DefaultButton}">
+                    >
                 </Button>
             </StackPanel>
 

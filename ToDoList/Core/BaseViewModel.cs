@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace ToDoList.Core
+namespace ToDoList
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
@@ -11,7 +11,7 @@ namespace ToDoList.Core
 
         protected void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

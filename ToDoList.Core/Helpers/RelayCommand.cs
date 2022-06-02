@@ -1,29 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace ToDoList.Core
 {
     public class RelayCommand : ICommand
     {
-        private Action mAction;
+        private Action <object> _execute;
+        private Func<object, bool> _canExecute;
 
-        public RelayCommand(Action action)
+        public event EventHandler CanExecuteChanged
         {
-            mAction = action;
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested += value; }
         }
 
-        public event EventHandler CanExecuteChanged;
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute=null)
+        {
+            _execute = execute;
+            _canExecute = canExecute;
+        }
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return _canExecute == null || _canExecute(parameter);
         }
 
-        public void Execute(object parameter)
+        public void Execute (object parameter)
         {
-            mAction();
+            _execute(parameter);
         }
+
+        //public RelayCommand(Action action)
+        //{
+        //    execute = action;
+        //}
+
+        //public event EventHandler CanExecuteChanged;
+
+        //public bool CanExecute(object parameter)
+        //{
+        //    return true;
+        //}
+
+        //public void Execute(object parameter)
+        //{
+        //    execute();
+        //}
     }
 }
