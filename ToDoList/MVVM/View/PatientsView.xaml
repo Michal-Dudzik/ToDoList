@@ -10,8 +10,8 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
 
 
@@ -31,14 +31,17 @@
         <TextBox Width="200" Text="{Binding NewPatientContactNumber, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="140,281,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
-        <Button x:Name="AddPatient" Background="#FF21654C" Width="100" Height="30" Margin="290,410,10,10"
-                Command="{Binding AddNewPatientCommand}"/>
+        <Button x:Name="AddPatient" Background="#FF21654C" Width="100" Height="30"           Margin="290,410,10,10"
+                Command="{Binding AddNewPatientCommand}" Content="Dodaj"
+                Foreground="white"/>
 
 
-        <Button x:Name="DeltePatient" Style="{StaticResource DeleteButtonTheme}" Width="100" Height="30" Background="#FF65213A" Grid.Column="1" Margin="290,10,10,410"
-                Command="{Binding DeleteSelectedPatientCommand}"/>
+        <Button x:Name="DeltePatient" Style="{StaticResource DeleteButtonTheme}"               Width="100" Height="30" Background="#FF65213A" Grid.Column="1"               Margin="290,10,10,410"
+                Command="{Binding DeleteSelectedPatientCommand}"
+                Content="Usuń"
+                Foreground="white" IsDefault="True"/>
 
-        <!--<ScrollViewer
+        <ScrollViewer
                       VerticalContentAlignment="Center"
                       Margin="0,50,0,50"
                       Grid.Column="1">
@@ -49,7 +52,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer>-->
+        </ScrollViewer>
 
     </Grid>
 

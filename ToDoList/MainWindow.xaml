@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoList"
+        xmlns:viewModel="clr-namespace:ToDoList"
         mc:Ignorable="d"
         Height="600" Width="920"
         ResizeMode="NoResize"
@@ -13,6 +14,10 @@
 
 
     <!--<local:WorkTasksPage />-->
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
 
     <Border Background="#272537">
         <Grid>
@@ -35,23 +40,32 @@
                     FontFamily="/Fonts/#Poppins"/>
 
             <StackPanel Grid.Row="1">
+                
                 <RadioButton Content="Pacjenci"
-                             IsChecked="True"
                              Height="50"
                              Foreground="white"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding PatientViewCommand}"/>
 
                 <RadioButton Content="Lekarze"
                              Height="50"
                              Foreground="white"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DoctorViewCommand}"/>
 
                 <RadioButton Content="Terminy"
                              Height="50"
                              Foreground="white"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding AppointmentViewCommand}"/>
 
-                <Calendar HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,160,0,0"/>
+                <RadioButton Content="Recepty"
+                             Height="50"
+                             Foreground="white"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding PrescriptionViewCommand}"/>
+
+                <Calendar HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,60,0,0"/>
 
 
             </StackPanel>
@@ -66,7 +80,8 @@
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="10"/>
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
         </Grid>
 
     </Border>
