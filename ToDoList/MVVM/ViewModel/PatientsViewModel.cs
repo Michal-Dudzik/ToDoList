@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Windows.Input;
+using ToDoList.Core;
 
-namespace ToDoList
+namespace ToDoList.MVVM.ViewModel
 {
     internal class PatientsViewModel : BaseViewModel
     {
-        public ObservableCollection<PatientModel> PatientList { get; set; } = new ObservableCollection<PatientModel>();
+        public List<PatientModel> PatientList { get; set; } = new List<PatientModel>();
 
         public string NewPatientFirstName { get; set; }
         public string NewPatientLasttName { get; set; }
-        public int NewPESEL { get; set; }
+        public int NewPesel { get; set; }
         public DateTime NewDateOfBirth { get; set; }
         public int NewPatientContactNumber { get; set; }
 
         public ICommand AddNewPatientCommand { get; set; }
-
         public ICommand DeleteSelectedPatientCommand { get; set; }
-
+        
         public PatientsViewModel()
         {
             AddNewPatientCommand = new RelayCommand(AddNewPatient);
@@ -33,7 +29,7 @@ namespace ToDoList
             {
                 PatientFirstName = NewPatientFirstName,
                 PatientLastName = NewPatientLasttName,
-                PESEL = NewPESEL,
+                Pesel = NewPesel,
                 DateOfBirth = NewDateOfBirth,
                 PatientContactNumber = NewPatientContactNumber,
             };
@@ -42,7 +38,7 @@ namespace ToDoList
 
             NewPatientFirstName = string.Empty;
             NewPatientLasttName = string.Empty;
-            NewPESEL = 0;
+            NewPesel = 0;
             NewPatientContactNumber = 0;
             NewDateOfBirth = DateTime.Now;
 

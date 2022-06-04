@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace ToDoList.MVVM.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy DoctorsView.xaml
-    /// </summary>
     public partial class DoctorsView : UserControl
     {
         public DoctorsView()

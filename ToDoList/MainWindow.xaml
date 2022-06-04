@@ -3,8 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ToDoList"
-        xmlns:viewModel="clr-namespace:ToDoList"
+        xmlns:viewModel1="clr-namespace:ToDoList.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="600" Width="920"
         ResizeMode="NoResize"
@@ -12,11 +11,8 @@
     <!--WindowStyle="None"
         AllowsTransparency="True"-->
 
-
-    <!--<local:WorkTasksPage />-->
-
     <Window.DataContext>
-        <viewModel:MainViewModel/>
+        <viewModel1:MainViewModel/>
     </Window.DataContext>
 
     <Border Background="#272537">
@@ -44,6 +40,7 @@
                 <RadioButton Content="Pacjenci"
                              Height="50"
                              Foreground="white"
+                             IsChecked="True"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding PatientViewCommand}"/>
 
@@ -65,7 +62,7 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding PrescriptionViewCommand}"/>
 
-                <Calendar HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,60,0,0"/>
+                <Calendar HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,110,0,0"/>
 
 
             </StackPanel>
@@ -82,6 +79,8 @@
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}"/>
+            
+            
         </Grid>
 
     </Border>

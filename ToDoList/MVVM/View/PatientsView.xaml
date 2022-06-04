@@ -1,59 +1,58 @@
-﻿<UserControl x:Class="ToDoList.MVVM.View.Patients"
+﻿<UserControl x:Class="ToDoList.MVVM.View.PatientsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ToDoList"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:toDoList="clr-namespace:ToDoList"
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="700">
     <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
+        
+        <TextBlock Text="Imie:" Foreground="white" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,74,0,0" Height="20" FontWeight="Bold"/>
+        <TextBox Grid.Column="0" Width="200" Text="{Binding NewPatientFirstName, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="59,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Grid.Column="0" Text="Nazwisko:" Foreground="White" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,132,0,0" Height="20" FontWeight="Bold"/>
+        <TextBox Grid.Column="0" Width="200" Text="{Binding NewPatientLastName, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="59,152,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Grid.Column="0" Text="PESEL:" Foreground="White" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,189,0,0" Height="20" FontWeight="Bold"/>
+        <TextBox Grid.Column="0" Width="200" Text="{Binding NewPesel, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="59,209,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Grid.Column="0" Text="Data urodzenia:" Foreground="White" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,247,0,0" Height="20" FontWeight="Bold" FontSize="10"/>
+        <TextBox Grid.Column="0" Width="200" Text="{Binding NewDateOfBirth, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="59,267,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Grid.Column="0" Text="Numer telefonu:" Foreground="White" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,301,0,0" Height="20" FontWeight="Bold" FontSize="10"/>
+        <TextBox Grid.Column="0" Width="200" Text="{Binding NewPatientContactNumber, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="59,321,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
-        <TextBlock Text="Imie:" Background="Red" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,137,0,0" Height="20"/>
-        <TextBox Width="200" Text="{Binding NewPatientFirstName, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="140,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-        <TextBlock Text="Nazwisko:" Background="Red" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,176,0,0" Height="20"/>
-        <TextBox Width="200" Text="{Binding NewPatientLasttName, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="140,176,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-        <TextBlock Text="PESEL:" Background="Red" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,210,0,0" Height="20"/>
-        <TextBox Width="200" Text="{Binding NewPESEL, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="140,210,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-        <TextBlock Text="Data urodzenia:" Background="Red" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,247,0,0" Height="20"/>
-        <TextBox Width="200" Text="{Binding NewDateOfBirth, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="140,247,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-        <TextBlock Text="Numer telefonu:" Background="Red" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,281,0,0" Height="20"/>
-        <TextBox Width="200" Text="{Binding NewPatientContactNumber, Mode=TwoWay}" Height="20" TextAlignment="Left" Margin="140,281,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-
-        <Button x:Name="AddPatient" Background="#FF21654C" Width="100" Height="30"           Margin="290,410,10,10"
-                Command="{Binding AddNewPatientCommand}" Content="Dodaj"
+        <Button Grid.Column="0" x:Name="AddPatient" Background="#FF21654C" Width="100" Height="30" Margin="220,410,10,10" Command="{Binding AddNewPatientCommand}" Content="Dodaj"
                 Foreground="white"/>
 
 
-        <Button x:Name="DeltePatient" Style="{StaticResource DeleteButtonTheme}"               Width="100" Height="30" Background="#FF65213A" Grid.Column="1"               Margin="290,10,10,410"
+        <Button x:Name="DeletePatient" Width="100" Height="30" Background="#FF65213A" Grid.Column="1" Margin="200,10,10,410"
                 Command="{Binding DeleteSelectedPatientCommand}"
                 Content="Usuń"
                 Foreground="white" IsDefault="True"/>
 
-        <ScrollViewer
+        <ScrollViewer Background="#ffffff"
+                      Width="300"
+                      Height="350"
                       VerticalContentAlignment="Center"
                       Margin="0,50,0,50"
                       Grid.Column="1">
-            <ItemsControl ItemsSource="{Binding PatientList}" Margin="10" >
+            
+            <ItemsControl ItemsSource="{Binding PatientList}" Margin="10,85,27,35">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:PatientList/>
+                        <toDoList:PatientList/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer>
+        </ScrollViewer>    
 
     </Grid>
-
 </UserControl>

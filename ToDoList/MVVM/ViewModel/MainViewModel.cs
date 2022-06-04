@@ -1,26 +1,23 @@
-﻿namespace ToDoList
+﻿using ToDoList.Core;
+
+namespace ToDoList.MVVM.ViewModel
 {
      class MainViewModel : BaseViewModel
     {
-
-        public RelayCommand MainViewCommand { get; set; }
         public RelayCommand PatientViewCommand { get; set; }
         public RelayCommand DoctorViewCommand { get; set; }
         public RelayCommand AppointmentViewCommand { get; set; }
         public RelayCommand PrescriptionViewCommand { get; set; }
-
-
-        public MainViewModel MainVM { get; set; }
-        public PatientsViewModel PatientVM { get; set; }
-        public DoctorsViewModel DoctorsVM { get; set; }
-        public AppointmentsViewModel AppointmentVM { get; set; }
-        public PrescriptionViewModel PrescriptionVM { get; set; }
+        
+        public PatientsViewModel PatientVm { get; set; }
+        public DoctorsViewModel DoctorsVm { get; set; }
+        public AppointmentsViewModel AppointmentVm { get; set; }
+        public PrescriptionViewModel PrescriptionVm { get; set; }
 
         private object _currentView;
-
         public object CurrentView
         { 
-            get { return _currentView; } 
+            get => _currentView;
             set { 
                 _currentView = value;
                 OnPropertyChanged();
@@ -30,31 +27,31 @@
 
         public MainViewModel()
         {
-            PatientVM = new PatientsViewModel();
-            DoctorsVM = new DoctorsViewModel();
-            AppointmentVM = new AppointmentsViewModel();
-            PrescriptionVM = new PrescriptionViewModel();
+            PatientVm = new PatientsViewModel();
+            DoctorsVm = new DoctorsViewModel();
+            AppointmentVm = new AppointmentsViewModel();
+            PrescriptionVm = new PrescriptionViewModel();
 
-            CurrentView = PatientVM;
+            CurrentView = PatientVm;
 
             PatientViewCommand = new RelayCommand(o =>
             {
-                CurrentView = PatientVM;
+                CurrentView = PatientVm;
             });
 
             DoctorViewCommand = new RelayCommand(o =>
             {
-                CurrentView = DoctorsVM;
+                CurrentView = DoctorsVm;
             });
 
             AppointmentViewCommand = new RelayCommand(o =>
             {
-                CurrentView = AppointmentVM;
+                CurrentView = AppointmentVm;
             });
 
             PrescriptionViewCommand = new RelayCommand(o =>
             {
-                CurrentView = PrescriptionVM;
+                CurrentView = PrescriptionVm;
             });
         }
     }

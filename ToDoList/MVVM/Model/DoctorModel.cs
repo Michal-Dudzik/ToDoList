@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ToDoList.Core;
 
 namespace ToDoList
 {
-    internal class DoctorModel : BaseViewModel
+    internal class DoctorModel :BaseViewModel
     {
         public bool IsSelected { get; set; }
         public string FirstName { get; set; }
