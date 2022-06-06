@@ -5,51 +5,45 @@ namespace ToDoList.Core
 {
     public class RelayCommand : ICommand
     {
-        private Action<object> _execute;
-        private Func<object, bool> _canExecute;
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested += value; }
-        }
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
-        {
-            _execute = execute;
-            _canExecute = canExecute;
-        }
-        public bool CanExecute(object parameter)
-        {
-            // return _canExecute == null || _canExecute(parameter);
-            return true;
-        }
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-        
-        // private Action _addNewPatient;
-        // public RelayCommand(Action addNewPatient)
+        // private Action<object> _execute;
+        // private Func<object, bool> _canExecute;
+        // public event EventHandler CanExecuteChanged
         // {
-        //     _addNewPatient = addNewPatient;
+        //     add => CommandManager.RequerySuggested += value;
+        //     remove => CommandManager.RequerySuggested -= value;
         // }
-
-        // private Action mAction;
-        //
-        // public RelayCommand(Action action)
+        // public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         // {
-        //     mAction = action;
+        //     _execute = execute;
+        //     _canExecute = canExecute;
         // }
-        //
-        // public event EventHandler CanExecuteChanged;
-        //
         // public bool CanExecute(object parameter)
         // {
-        //     return true;
+        //     return _canExecute == null || _canExecute(parameter);
+        //     // return true;
         // }
-        //
         // public void Execute(object parameter)
         // {
-        //     mAction();
+        //     _execute(parameter);
         // }
+        
+        private Action mAction;
+        
+        public RelayCommand(Action action)
+        {
+            mAction = action;
+        }
+        
+        public event EventHandler CanExecuteChanged;
+        
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+        
+        public void Execute(object parameter)
+        {
+            mAction();
+        }
     }
 }

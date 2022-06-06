@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using ServiceStack.DataAnnotations;
 using ToDoList.Core;
 
-namespace ToDoList
+namespace ToDoList.MVVM.Model
 {
     internal class DoctorModel :BaseViewModel
     {
-        public bool IsSelected { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        [Key]
+        public int DoctorId { get; set; }
+
+        public string DoctorFirstName { get; set; }
+
+        public string DoctorLastName { get; set; }
+
         public string Specialization { get; set; }
-        public int ContactNumber { get; set; }
-        public string Status { get; set; }
+
+        public int DoctorContactNumber { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 }

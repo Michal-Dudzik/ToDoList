@@ -14,15 +14,15 @@
         </StackPanel>
         <StackPanel Height="400" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <!--<ScrollViewer Height="300" Width="600">
-                <ItemsControl ItemsSource="{Binding WorkTaskList}" Margin="10" >
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <local:WorkTask/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>-->
+            <!-- <ScrollViewer Height="300" Width="600"> -->
+            <!--     <ItemsControl ItemsSource="{Binding WorkTaskList}" Margin="10" > -->
+            <!--         <ItemsControl.ItemTemplate> -->
+            <!--             <DataTemplate> -->
+            <!--                 <local:WorkTask/> -->
+            <!--             </DataTemplate> -->
+            <!--         </ItemsControl.ItemTemplate> -->
+            <!--     </ItemsControl> -->
+            <!-- </ScrollViewer> -->
 
 
             <TextBlock Text="Tytuł:">

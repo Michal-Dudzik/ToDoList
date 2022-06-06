@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using ToDoList.MVVM.ViewModel;
 
 namespace ToDoList.MVVM.View
@@ -11,10 +10,5 @@ namespace ToDoList.MVVM.View
             InitializeComponent();
             DataContext = new PatientsViewModel();
         }
-        
-        // private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        // {
-        //
-        // }       
     }
 }

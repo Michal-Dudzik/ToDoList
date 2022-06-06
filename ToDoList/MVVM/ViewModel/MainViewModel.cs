@@ -31,28 +31,13 @@ namespace ToDoList.MVVM.ViewModel
             DoctorsVm = new DoctorsViewModel();
             AppointmentVm = new AppointmentsViewModel();
             PrescriptionVm = new PrescriptionViewModel();
-
+        
             CurrentView = PatientVm;
-
-            PatientViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = PatientVm;
-            });
-
-            DoctorViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = DoctorsVm;
-            });
-
-            AppointmentViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = AppointmentVm;
-            });
-
-            PrescriptionViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = PrescriptionVm;
-            });
+            
+            PatientViewCommand = new RelayCommand(() => CurrentView = PatientVm);
+            DoctorViewCommand = new RelayCommand(() => CurrentView = DoctorsVm);
+            AppointmentViewCommand = new RelayCommand(() => CurrentView = AppointmentVm);
+            PrescriptionViewCommand = new RelayCommand(() => CurrentView = PrescriptionVm);
         }
     }
 }

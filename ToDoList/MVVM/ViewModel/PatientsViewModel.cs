@@ -1,16 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using ToDoList.Core;
+using ToDoList.MVVM.Model;
 
 namespace ToDoList.MVVM.ViewModel
 {
     internal class PatientsViewModel : BaseViewModel
     {
-        public List<PatientModel> PatientList { get; set; } = new List<PatientModel>();
+        public ObservableCollection<PatientModel> PatientList { get; set; } = new ObservableCollection<PatientModel>();
 
         public string NewPatientFirstName { get; set; }
-        public string NewPatientLasttName { get; set; }
+        public string NewPatientLastName { get; set; }
         public int NewPesel { get; set; }
         public DateTime NewDateOfBirth { get; set; }
         public int NewPatientContactNumber { get; set; }
@@ -22,13 +24,26 @@ namespace ToDoList.MVVM.ViewModel
         {
             AddNewPatientCommand = new RelayCommand(AddNewPatient);
             DeleteSelectedPatientCommand = new RelayCommand(DeleteSelectedPatient);
+
+            foreach (var patient in DataBaseLocator.DataBase.PatientTable.ToList())
+            {
+                PatientList.Add(new PatientModel
+                {
+                    PatientFirstName = patient.PatientFirstName,
+                    PatientLastName = patient.PatientLastName,
+                    Pesel = patient.Pesel,
+                    DateOfBirth = patient.DateOfBirth,
+                    PatientContactNumber = patient.PatientContactNumber,
+                });
+
+            }
         }
         private void AddNewPatient()
         {
             var newPatient = new PatientModel
             {
                 PatientFirstName = NewPatientFirstName,
-                PatientLastName = NewPatientLasttName,
+                PatientLastName = NewPatientLastName,
                 Pesel = NewPesel,
                 DateOfBirth = NewDateOfBirth,
                 PatientContactNumber = NewPatientContactNumber,
@@ -36,8 +51,19 @@ namespace ToDoList.MVVM.ViewModel
 
             PatientList.Add(newPatient);
 
+            DataBaseLocator.DataBase.PatientTable.Add(new PatientModel
+            {
+                PatientFirstName = newPatient.PatientFirstName,
+                PatientLastName = newPatient.PatientLastName,
+                Pesel = newPatient.Pesel,
+                DateOfBirth = newPatient.DateOfBirth,
+                PatientContactNumber = newPatient.PatientContactNumber,
+            });
+            
+            DataBaseLocator.DataBase.SaveChanges();
+
             NewPatientFirstName = string.Empty;
-            NewPatientLasttName = string.Empty;
+            NewPatientLastName = string.Empty;
             NewPesel = 0;
             NewPatientContactNumber = 0;
             NewDateOfBirth = DateTime.Now;
@@ -46,12 +72,20 @@ namespace ToDoList.MVVM.ViewModel
 
         private void DeleteSelectedPatient()
         {
-            var selectedTasks = PatientList.Where(x => x.IsSelected).ToList();
+            var selectedPatients = PatientList.Where(x => x.IsSelected).ToList();
 
-            foreach (var task in selectedTasks)
+            foreach (var patient in selectedPatients)
             {
-                PatientList.Remove(task);
+                PatientList.Remove(patient);
+
+                var foundEntity = DataBaseLocator.DataBase.PatientTable.FirstOrDefault(x=>x.PatientId==patient.PatientId);
+
+                if(foundEntity!=null)
+                {
+                    DataBaseLocator.DataBase.PatientTable.Remove(foundEntity);
+                }
             }
+            DataBaseLocator.DataBase.SaveChanges();
         }
     }
 }

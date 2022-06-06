@@ -38,21 +38,21 @@
                 Content="Usuń"
                 Foreground="white" IsDefault="True"/>
 
-        <ScrollViewer Background="#ffffff"
+        <ScrollViewer Background="white"
                       Width="300"
                       Height="350"
                       VerticalContentAlignment="Center"
                       Margin="0,50,0,50"
                       Grid.Column="1">
-            
-            <ItemsControl ItemsSource="{Binding PatientList}" Margin="10,85,27,35">
+        
+            <ItemsControl ItemsSource="{Binding PatientList}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <toDoList:PatientList/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer>    
-
+        </ScrollViewer>
+        
     </Grid>
 </UserControl>

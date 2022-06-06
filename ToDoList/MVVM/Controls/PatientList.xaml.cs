@@ -10,12 +10,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToDoList.MVVM.ViewModel;
 
 namespace ToDoList
 {
-    /// <summary>
-    /// Logika interakcji dla klasy PatientList.xaml
-    /// </summary>
     public partial class PatientList : UserControl
     {
         public PatientList()

@@ -1,17 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using ServiceStack.DataAnnotations;
 using ToDoList.Core;
 
-namespace ToDoList
+namespace ToDoList.MVVM.Model
 {
     internal class AppointmentsModel :BaseViewModel
     {
-        public bool IsSelected { get; set; }
+
+        [Key]
+        public int AppointmentId { get; set; }
+        
         public int PatientId { get; set; }
+
         public int DoctorId { get; set; }
+
         public DateTime CreationDate { get; set; }
+
         public DateTime DateOfAppointment { get; set; }
-        public bool Status { get; set; }
+
+        public string Status { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 }
