@@ -3,7 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid />
+             mc:Ignorable="d" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Doktor" Foreground="white" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,58,0,0" Height="20" FontWeight="Bold" Grid.Row="1"/>
+        <ComboBox x:Name="Doktor" Margin="0,0,300,125" Grid.Row="1" ItemsSource="{Binding DoctorArray}" Width="200" Height="20"/>
+
+        <TextBlock Grid.Column="0" Text="Pacjent" Foreground="White" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,58,0,0" Height="20" FontWeight="Bold" Grid.Row="1"/>
+        <ComboBox x:Name="Pacjent" Margin="235,0,0,125" Grid.Row="1" ItemsSource="{Binding PatientArray}"  Width="200" Height="20"/>
+
+        <TextBlock Grid.Column="0" Text="Status" Foreground="White" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,120,0,0" Height="20" FontWeight="Bold" Grid.Row="1"/>
+        <ComboBox Width="200" ItemsSource="{Binding StatusArray}" Height="20" Margin="190,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1"/>
+
+        <TextBlock Grid.Column="0" Text="Data wizyty" Foreground="White" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,115,0,0" Height="20" FontWeight="Bold" FontSize="10" Grid.Row="1"/>
+        <DatePicker Text="{Binding NewDateOfAppointment, Mode=TwoWay}" HorizontalAlignment="Left" Margin="460,136,0,0" VerticalAlignment="Top" Width="200" Grid.Row="1" RenderTransformOrigin="0.498,0.333"/>
+
+
+        <Button Background="#FF21654C" Width="100" Height="30" Margin="0,100,25,0" Command="{Binding AddNewPatientCommand}" Content="Dodaj"
+                Foreground="white" Grid.Row="1"/>
+
+
+        <Button Width="100" Height="30" Background="#FF65213A" Margin="250,100,25,0"
+                Command="{Binding DeleteSelectedPatientCommand}"
+                Content="Usuń"
+                Foreground="white" IsDefault="True" Grid.Row="1"/>
+
+        <Button Width="100" Height="30" Background="#FF655C21" Margin="0,100,275,0"
+                Command="{Binding UpdateAppointmentCommand}"
+                Content="Zapisz"
+                Foreground="white" IsDefault="True" Grid.Row="1"/>
+        
+        <DataGrid ItemsSource="{Binding AppointmentList}" Height="200" Width="500" Margin="0,0,30,250" Grid.RowSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="" Binding="{Binding IsSelected}"  Width="20"/>
+                <DataGridTextColumn Header="Lp." Binding="{Binding AppointmentId}" Width="30"/>
+                <DataGridTextColumn Header="Doktor" Binding="{Binding DoktorFirstName}" Width="135"/>
+                <DataGridTextColumn Header="Pacjent" Binding="{Binding PatientFirstName}" Width="135"/>
+                <DataGridTextColumn Header="Data wizyty" Binding="{Binding DateOfAppointment}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="72"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

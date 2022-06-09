@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using ServiceStack.DataAnnotations;
 using ToDoList.Core;
+using ToDoList.MVVM.ViewModel;
 
 namespace ToDoList.MVVM.Model
 {
@@ -19,7 +20,7 @@ namespace ToDoList.MVVM.Model
 
         public DateTime DateOfAppointment { get; set; }
 
-        public string Status { get; set; }
+        public AppointmentsViewModel.status Status { get; set; }
 
         public bool IsSelected { get; set; }
     }

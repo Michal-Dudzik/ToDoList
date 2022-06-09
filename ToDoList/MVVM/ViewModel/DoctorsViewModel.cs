@@ -81,11 +81,11 @@ namespace ToDoList.MVVM.ViewModel
             private void DeleteSelectedDoctor()
             {
             //get patient id from selected patient
-            var doctorId = DoctorList.First(x => x.IsSelected).DoctorId;
+            var doctorId = DoctorList.FirstOrDefault(x => x.IsSelected).DoctorId;
             //delete patient from database
-            DataBaseLocator.DataBase.DoctorTable.Remove(DataBaseLocator.DataBase.DoctorTable.First(x => x.DoctorId == doctorId));
+            DataBaseLocator.DataBase.DoctorTable.Remove(DataBaseLocator.DataBase.DoctorTable.FirstOrDefault(x => x.DoctorId == doctorId));
             //delete patient from list
-            DoctorList.Remove(DoctorList.First(x => x.IsSelected));
+            DoctorList.Remove(DoctorList.FirstOrDefault(x => x.IsSelected));
             //save changes
             DataBaseLocator.DataBase.SaveChanges();
         }

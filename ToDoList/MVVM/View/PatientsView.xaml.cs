@@ -12,10 +12,6 @@ namespace ToDoList.MVVM.View
             InitializeComponent();
             DataContext = new PatientsViewModel();
         }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -33,6 +33,15 @@
                 Content="Usuń"
                 Foreground="white" IsDefault="True" Grid.Row="1"/>
 
-        <DataGrid ItemsSource="{Binding DoctorList}" Height="230" Width="540" Margin="0,0,30,250" Grid.RowSpan="2" IsReadOnly="True"/>
+        <DataGrid ItemsSource="{Binding DoctorList}" Height="230" Width="530" Margin="0,0,30,250" Grid.RowSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="" Binding="{Binding IsSelected}"  Width="20"/>
+                <DataGridTextColumn Header="Imie" Binding="{Binding DoctorFirstName}" Width="135"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding DoctorLastName}" Width="135"/>
+                <DataGridTextColumn Header="Specjalizacja" Binding="{Binding Specialization}" Width="135"/>
+                <DataGridTextColumn Header="Numer telefonu" Binding="{Binding DoctorContactNumber}" Width="95"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </UserControl>

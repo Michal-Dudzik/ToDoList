@@ -24,7 +24,6 @@ namespace ToDoList.MVVM.ViewModel
             }
         }
 
-
         public MainViewModel()
         {
             PatientVm = new PatientsViewModel();

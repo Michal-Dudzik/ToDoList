@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using ToDoList.MVVM.ViewModel;
 
 namespace ToDoList.MVVM.View
 {
@@ -7,7 +8,7 @@ namespace ToDoList.MVVM.View
         public PrescriptionView()
         {
             InitializeComponent();
-            DataContext = new PrescriptionView();
+            DataContext = new PrescriptionViewModel();
         }
     }
 }
