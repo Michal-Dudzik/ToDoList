@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using ToDoList.Core;
 using ToDoList.MVVM.ViewModel;
 
 namespace ToDoList.MVVM.View
@@ -9,6 +11,11 @@ namespace ToDoList.MVVM.View
         {
             InitializeComponent();
             DataContext = new PatientsViewModel();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

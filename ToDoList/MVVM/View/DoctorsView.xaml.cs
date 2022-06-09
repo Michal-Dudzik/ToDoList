@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToDoList.MVVM.ViewModel;
 
 namespace ToDoList.MVVM.View
 {
@@ -18,6 +19,7 @@ namespace ToDoList.MVVM.View
         public DoctorsView()
         {
             InitializeComponent();
+            DataContext = new DoctorsViewModel();
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿$HEADER$using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
-namespace $NAMESPACE$
+namespace ToDoList.MVVM.Controls
 {
-    public partial class $CLASS$ : UserControl
+    public partial class PresciptionList : UserControl
     {
-        public $CLASS$()
+        public PresciptionList()
         {
             InitializeComponent();
         }

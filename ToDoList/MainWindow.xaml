@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel1="clr-namespace:ToDoList.MVVM.ViewModel"
         mc:Ignorable="d"
-        Height="600" Width="920"
+        Height="600" Width="1100"
         ResizeMode="NoResize"
-        Background="Transparent">
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
     <!--WindowStyle="None"
         AllowsTransparency="True"-->
 
@@ -19,11 +20,11 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="900"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -67,13 +68,13 @@
 
             </StackPanel>
 
-            <TextBox Width="250"
+            <!--<TextBox Width="250"
                      Height="40"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
                      Margin="5"
                      Grid.Column="1"
-                     Style="{StaticResource ModernTextbox}"/>
+                     Style="{StaticResource ModernTextbox}"/>-->
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"

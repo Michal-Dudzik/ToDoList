@@ -15,7 +15,7 @@ namespace ToDoList.MVVM.Model
 
         public int DoctorId { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        //public DateTime CreationDate { get; set; }
 
         public DateTime DateOfAppointment { get; set; }
 

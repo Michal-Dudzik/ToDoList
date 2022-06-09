@@ -4,7 +4,7 @@ using ToDoList.Core;
 
 namespace ToDoList.MVVM.Model
 {
-    internal class DoctorModel :BaseViewModel
+    public class DoctorModel :BaseViewModel
     {
         [Key]
         public int DoctorId { get; set; }

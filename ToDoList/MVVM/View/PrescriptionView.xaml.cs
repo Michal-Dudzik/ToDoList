@@ -7,6 +7,7 @@ namespace ToDoList.MVVM.View
         public PrescriptionView()
         {
             InitializeComponent();
+            DataContext = new PrescriptionView();
         }
     }
 }

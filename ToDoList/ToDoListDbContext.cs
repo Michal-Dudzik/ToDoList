@@ -18,7 +18,7 @@ namespace ToDoList
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlite($"Filename={Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "ToDoList.sqlite")}");
+            optionsBuilder.UseSqlite($"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ToDoList.sqlite")}");
         }
     }
 }
